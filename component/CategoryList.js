@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
-import peru from '../assets/peru.png'
+
 
 export default function CategoryList(props) {
+
+    const { category } = props;
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Flag</Text>
-            <Image style={styles.image} source={peru} />
+            <Text style={styles.title}>{category.title}</Text>
+            <Image style={styles.image} source={category.image} />
         </View>
     )
 
@@ -17,8 +20,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 4,
         padding: 16,
-        margin: 5,
-        backgroundColor: '#FF0',
+        margin: 10,
+        backgroundColor: '#FFF',
         shadowColor: '#000',
         shadowOpacity: 0.3,
         shadowRadius: 10,
