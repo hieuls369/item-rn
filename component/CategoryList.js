@@ -1,31 +1,32 @@
-import React, { Component } from 'react'
-import { View, Text, Image, StyleSheet } from 'react-native'
+import React from 'react'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 
 export default function CategoryList(props) {
 
-    const { category } = props;
+    const { category, onPress } = props;
+
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>{category.title}</Text>
-            <Image style={styles.image} source={category.image} />
-        </View>
+        <TouchableOpacity activeOpacity={0.5} onPress={onPress}>
+            <View style={styles.container}>
+                <Text style={styles.title}>{category.title}</Text>
+                <Image style={styles.image} source={category.image} />
+            </View>
+        </TouchableOpacity>
     )
 
 }
+
+
 
 const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
         borderRadius: 4,
         padding: 16,
-        margin: 10,
+        margin: 16,
         backgroundColor: '#FFF',
-        shadowColor: '#000',
-        shadowOpacity: 0.3,
-        shadowRadius: 10,
-        shadowOffset: { width: 0, height: 0}
     },
     title:{
         textTransform: 'uppercase',
@@ -36,5 +37,4 @@ const styles = StyleSheet.create({
         width: 64,
         height: 64
     }
-
 });

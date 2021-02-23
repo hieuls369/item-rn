@@ -1,46 +1,46 @@
-import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import CategoryList from './component/CategoryList'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import peru from './assets/peru.png';
-import calendar from './assets/calendar.png'
-import grapes from './assets/grapes.png'
-import pizza from './assets/pizza.png'
-import popcorn from './assets/popcorn.png'
-import wine from './assets/wine.png'
+import Home from './screen/Home';
+import Category from './screen/Category';
+import SettingTab from './screen/SettingTab';
+import CartTab from './screen/CartTab';
+import AccountTab from './screen/AccountTab';
+
+function Root(){
+  const AppContainer = createStackNavigator();
+
+  return (
+    <AppContainer.Navigator initialRouteName='Home'>
+        <AppContainer.Screen 
+          name='Home'
+          component={Home}/>
+        <AppContainer.Screen 
+          name='Category'
+          component={Category}
+          options={({ route }) => ({title: route.params.title})}/>
+      </AppContainer.Navigator>
+  );
+}
 
 
 export default function App() {
 
-  const category = [
-    { id: 1, title: 'Flag', image: peru },
-    { id: 2, title: 'Date', image: calendar },
-    { id: 3, title: 'Fruits', image: grapes },
-    { id: 4, title: 'Fast Food', image: pizza },
-    { id: 5, title: 'Movie', image: popcorn },
-    { id: 6, title: 'Bar', image: wine }
-  ];
-
-  const [useCategory, changeCategory] = useState(category);
+  
+  const BottomContainer = createBottomTabNavigator();
 
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        {category.map( item  => 
-          <CategoryList key={item.id} category={item} />
-        )}
-      </ScrollView>
-    </View>
+    <NavigationContainer>
+      <BottomContainer.Navigator>
+        <BottomContainer.Screen name='Main' component={Root}/>
+        <BottomContainer.Screen name='CartTab' component={CartTab}/>
+        <BottomContainer.Screen name='AccountTab' component={AccountTab}/>
+        <BottomContainer.Screen name='SettingTab' component={SettingTab}/>
+      </BottomContainer.Navigator>
+    </NavigationContainer>
   );
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#663399',
-    alignItems: 'stretch',
-    justifyContent: 'center',
-    paddingLeft: 16,
-    paddingRight: 16
-  },
-});
