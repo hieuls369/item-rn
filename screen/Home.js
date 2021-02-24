@@ -1,30 +1,20 @@
 import React, { useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import CategoryList from '../component/CategoryList';
+import data from '../db/data.json';
 
-
-import peru from '../assets/peru.png';
-import calendar from '../assets/calendar.png';
-import grapes from '../assets/grapes.png';
-import pizza from '../assets/pizza.png';
-import popcorn from '../assets/popcorn.png';
-import wine from '../assets/wine.png';
+// import peru from '../assets/peru.png';
+// import calendar from '../assets/calendar.png';
+// import grapes from '../assets/grapes.png';
+// import pizza from '../assets/pizza.png';
+// import popcorn from '../assets/popcorn.png';
+// import wine from '../assets/wine.png';
 
 export default function Home(props) {
 
     const { navigation } = props;
 
-    const categoryList = {
-      category:[
-        { id: 1, title: 'Flag', image: peru },
-        { id: 2, title: 'Date', image: calendar },
-        { id: 3, title: 'Fruits', image: grapes },
-        { id: 4, title: 'Fast Food', image: pizza },
-        { id: 5, title: 'Movie', image: popcorn },
-        { id: 6, title: 'Bar', image: wine }
-      ]
-    };
-
+    const categoryList = data;
     // const test = {
     //   list:[]
     // }

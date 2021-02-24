@@ -1,11 +1,13 @@
-
 {
     "category":[
-        { "id": 1, "title": "Flag", "image": "../assets/peru.png" },
-        { "id": 2, "title": "Date", "image": "../assets/calendar.png" },
-        { "id": 3, "title": "Fruits", "image": "../assets/grapes.png" },
-        { "id": 4, "title": "Fast Food", "image": "../assets/pizza.png" },
-        { "id": 5, "title": "Movie", "image": "../assets/pizza.png" },
-        { "id": 6, "title": "Bar", "image": "../assets/wine.png" }
-      ]
+      { "id": 1, "title": "Flag", "image": "../assets/peru.png" },
+      { "id": 2, "title": "Date", "image": "../assets/calendar.png" },
+      { "id": 3, "title": "Fruits", "image": "../assets/grapes.png" },
+      { "id": 4, "title": "Fast Food", "image": "../assets/pizza.png" },
+      { "id": 5, "title": "Movie", "image": "../assets/pizza.png" },
+      { "id": 6, "title": "Bar", "image": "../assets/wine.png" }
+    ],
+    "products":[
+      {}
+    ]
 }
